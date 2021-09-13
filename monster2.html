@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Host deep link data -->
+  <meta name="branch:deeplink:monster_name" content="monster2" />
+  <meta name="branch:deeplink:face_index" content="happy" />
+  <meta name="branch:deeplink:body_index" content="tree" />
+  <meta name="branch:deeplink:color_index" content="green" />
+
+  <title>Journeys Example Webpage</title>
+  <script>
+    // load Branch
+    (function(b,r,a,n,c,h,_,s,d,k){if(!b[n]||!b[n]._q){for(;s<_.length;)c(h,_[s++]);d=r.createElement(a);d.async=1;d.src="https://cdn.branch.io/branch-latest.min.js";k=r.getElementsByTagName(a)[0];k.parentNode.insertBefore(d,k);b[n]=h}})(window,document,"script","branch",function(b,r){b[r]=function(){b._q.push([r,arguments])}},{_q:[],_v:1},"addListener applyCode autoAppIndex banner closeBanner closeJourney creditHistory credits data deepview deepviewCta first getCode init link logout redeem referrals removeListener sendSMS setBranchViewData setIdentity track validateCode trackCommerceEvent logEvent disableTracking".split(" "), 0);
+    // init Branch
+    branch.init('key_test_ifXDqkXQtS9W7qtp8AlkZnijsyh1iVrw');
+  </script>
+
+  <style>
+    .header {
+    padding: 2px;
+    text-align: center;
+    background: #1abc9c;
+    color: white;
+  }
+    .button {
+      background-color: white;
+      border: 2px solid #008CBA;
+      color: black;
+      padding: 16px 32px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      margin: 4px 2px;
+      transition-duration: 0.4s;
+      cursor: pointer;
+      border-radius: 12px;
+    }
+    .topnav {
+      overflow: hidden;
+      background-color: #333;
+    }
+
+    .topnav a {
+      float: left;
+      color: #f2f2f2;
+      text-align: center;
+      padding: 14px 16px;
+      text-decoration: none;
+      font-size: 17px;
+    }
+
+    .topnav a:hover {
+      background-color: #ddd;
+      color: black;
+    }
+
+    .topnav a.active {
+      background-color: #04AA6D;
+      color: white;
+  }
+  </style>
+
+  <script type="text/javascript">
+      // sample metadata for commerce event
+      var event_and_custom_data = {
+         "transaction_id": "tras_Id_1232343434",
+         "currency": "USD",
+         "revenue": 180.2,
+         "shipping": 10.5,
+         "tax": 13.5,
+         "coupon": "promo-1234",
+         "affiliation": "high_fi",
+         "description": "Preferred purchase",
+         "purchase_loc": "Palo Alto",
+         "store_pickup": "unavailable"
+      };
+
+      var content_items = [
+      {
+         "$content_schema": "COMMERCE_PRODUCT",
+         "$og_title": "Nike Shoe",
+         "$og_description": "Start loving your steps",
+         "$og_image_url": "http://example.com/img1.jpg",
+         "$canonical_identifier": "nike/1234",
+         "$publicly_indexable": false,
+         "$price": 101.2,
+         "$locally_indexable": true,
+         "$quantity": 1,
+         "$sku": "1101123445",
+         "$product_name": "Runner",
+         "$product_brand": "Nike",
+         "$product_category": "Sporting Goods",
+         "$product_variant": "XL",
+         "$rating_average": 4.2,
+         "$rating_count": 5,
+         "$rating_max": 2.2,
+         "$creation_timestamp": 1499892854966,
+         "$exp_date": 1499892854966,
+         "$keywords": [ "sneakers", "shoes" ],
+         "$address_street": "230 South LaSalle Street",
+         "$address_city": "Chicago",
+         "$address_region": "IL",
+         "$address_country": "US",
+         "$address_postal_code": "60604",
+         "$latitude": 12.07,
+         "$longitude": -97.5,
+         "$image_captions": [ "my_img_caption1", "my_img_caption_2" ],
+         "$condition": "NEW",
+         "$custom_fields": {"foo1":"bar1","foo2":"bar2"}
+      },
+      {
+         "$og_title": "Nike Woolen Sox",
+         "$canonical_identifier": "nike/5324",
+         "$og_description": "Fine combed woolen sox for those who love your foot",
+         "$publicly_indexable": false,
+         "$price": 80.2,
+         "$locally_indexable": true,
+         "$quantity": 5,
+         "$sku": "110112467",
+         "$product_name": "Woolen Sox",
+         "$product_brand": "Nike",
+         "$product_category": "Apparel & Accessories",
+         "$product_variant": "Xl",
+         "$rating_average": 3.3,
+         "$rating_count": 5,
+         "$rating_max": 2.8,
+         "$creation_timestamp": 1499892854966
+      }];
+
+      function logMonsterView() {
+        // custom monster_view event
+        var custom_data = {
+           "Custom_Event_Property_Key1": "Custom_Event_Property_val1",
+           "Custom_Event_Property_Key2": "Custom_Event_Property_val2"
+        };
+        branch.logEvent(
+            "monster_view",
+            custom_data,
+            function(err) {  if(err) {console.log(err);} }
+        );
+        // content view
+        var customer_event_alias = "view item event alias";
+        branch.logEvent(
+           "VIEW_ITEM",
+           {},
+           {},
+           customer_event_alias,
+           function(err) {  if(err) {console.log(err);} }
+        );
+        console.log("Logged monster_view and view item events");
+      };
+      function logMonsterViewEvent() {
+        // custom monster_view event
+        var custom_data = {
+           "Custom_Event_Property_Key1": "Custom_Event_Property_val1",
+           "Custom_Event_Property_Key2": "Custom_Event_Property_val2"
+        };
+        branch.logEvent(
+            "monster_view",
+            custom_data,
+            callback (err)
+        );
+        console.log("Logged monster_view custom event");
+        // content view
+        var customer_event_alias = "view item event alias";
+        branch.logEvent(
+           "VIEW_ITEM",
+           {},
+           {},
+           customer_event_alias,
+           function(err) {  if(err) {console.log(err);} }
+        );
+        console.log("Logged monster_view and view item events");
+      };
+      function logRegisterEvent() {
+        var customer_event_alias = "complete registration event alias";
+        branch.logEvent(
+           "COMPLETE_REGISTRATION",
+           {},
+           {},
+           customer_event_alias,
+           function(err) {  if(err) {console.log(err);} }
+        );
+        console.log("Logged complete registration event");
+        document.getElementById("confirmation").innerHTML = "Registered!";
+      };
+      function logAddToCart() {
+        var customer_event_alias = "add to cart event alias";
+        branch.logEvent(
+           "ADD_TO_CART",
+           event_and_custom_data,
+           content_items,
+           customer_event_alias,
+           function(err) {  if(err) {console.log(err);} }
+        );
+        console.log("Logged add to cart event");
+        document.getElementById("confirmation").innerHTML = "Added to Cart!";
+      };
+      function logPurchase() {
+        var customer_event_alias = "purchase event alias";
+        branch.logEvent(
+           "PURCHASE",
+           event_and_custom_data,
+           content_items,
+           customer_event_alias,
+           function(err) {  if(err) {console.log(err);} }
+        );
+        console.log("Logged purchase event");
+        document.getElementById("confirmation").innerHTML = "Purchased!";
+      };
+  </script>
+</head>
+
+<body>
+  <center>
+    <div class="topnav">
+      <a href="index.html">Monster 1</a>
+      <a class="active" href="monster2.html">Monster 2</a>
+    </div>
+    <div class="header">
+      <h1>Welcome to an Example Branch Page</h1>
+    </div>
+    <h2>Check this out on mobile meb!</h2>
+    <br>
+    <h3>Monster 2</h3>
+    <br><img id="image" src="assets/image2.png"/>
+    <script type="text/javascript">
+        logMonsterView();
+    </script>
+    <br>
+    <button class="button" onclick="logRegisterEvent()">Register</button>
+    <button class="button" onclick="logAddToCart()">Add to Cart</button>
+    <button class="button" onclick="logPurchase()">Purchase</button>
+    <p id="confirmation"></p>
+  </center>
+</body>
+
+</html>
