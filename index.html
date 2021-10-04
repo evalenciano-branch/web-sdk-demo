@@ -14,6 +14,11 @@
     (function(b,r,a,n,c,h,_,s,d,k){if(!b[n]||!b[n]._q){for(;s<_.length;)c(h,_[s++]);d=r.createElement(a);d.async=1;d.src="https://cdn.branch.io/branch-latest.min.js";k=r.getElementsByTagName(a)[0];k.parentNode.insertBefore(d,k);b[n]=h}})(window,document,"script","branch",function(b,r){b[r]=function(){b._q.push([r,arguments])}},{_q:[],_v:1},"addListener applyCode autoAppIndex banner closeBanner closeJourney creditHistory credits data deepview deepviewCta first getCode init link logout redeem referrals removeListener sendSMS setBranchViewData setIdentity track validateCode trackCommerceEvent logEvent disableTracking".split(" "), 0);
     // init Branch
     branch.init('key_test_ifXDqkXQtS9W7qtp8AlkZnijsyh1iVrw');
+    branch.setIdentity(
+      "test-identity",
+      callback (err, data)
+    );
+
   </script>
   <script>
     !function(){var analytics=window.analytics=window.analytics||[];if(!analytics.initialize)if(analytics.invoked)window.console&&console.error&&console.error("Segment snippet included twice.");else{analytics.invoked=!0;analytics.methods=["trackSubmit","trackClick","trackLink","trackForm","pageview","identify","reset","group","track","ready","alias","debug","page","once","off","on","addSourceMiddleware","addIntegrationMiddleware","setAnonymousId","addDestinationMiddleware"];analytics.factory=function(e){return function(){var t=Array.prototype.slice.call(arguments);t.unshift(e);analytics.push(t);return analytics}};for(var e=0;e<analytics.methods.length;e++){var key=analytics.methods[e];analytics[key]=analytics.factory(key)}analytics.load=function(key,e){var t=document.createElement("script");t.type="text/javascript";t.async=!0;t.src="https://cdn.segment.com/analytics.js/v1/" + key + "/analytics.min.js";var n=document.getElementsByTagName("script")[0];n.parentNode.insertBefore(t,n);analytics._loadOptions=e};analytics._writeKey="hjH2YOhy9pWndJ5XV15kJnoLgqbY1Wk9";;analytics.SNIPPET_VERSION="4.15.3";
@@ -113,7 +118,8 @@
          "$longitude": -97.5,
          "$image_captions": [ "my_img_caption1", "my_img_caption_2" ],
          "$condition": "NEW",
-         "$custom_fields": {"foo1":"bar1","foo2":"bar2"}
+         "$custom_fields": {"foo1":"bar1","foo2":"bar2"},
+         "$item_number": "item-number-test101"
       },
       {
          "$og_title": "Nike Woolen Sox",
@@ -131,7 +137,8 @@
          "$rating_average": 3.3,
          "$rating_count": 5,
          "$rating_max": 2.8,
-         "$creation_timestamp": 1499892854966
+         "$creation_timestamp": 1499892854966,
+         "$item_number": "item-number-test202"
       }];
 
       function logMonsterView() {
