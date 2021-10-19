@@ -173,6 +173,8 @@
             custom_data,
             callback (err)
         );
+        analytics.track("User Registered", {});
+        analytics.track("custom_monster_view", {});
         console.log("Logged monster_view custom event");
         // content view
         var customer_event_alias = "view item event alias";
